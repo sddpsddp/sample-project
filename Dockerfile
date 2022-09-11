@@ -1,3 +1,6 @@
 From tomcat:latest 
 # Copy Maven Jar to Docker 
-COPY . /usr/local/tomcat/webapp/
+COPY $(system.defaultworkingdirectory)/*.war /usr/local/tomcat/webapp/
+CMD["catalina.sh","run"]
+RUN echo "docker application running"
+
